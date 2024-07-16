@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<style>
+  .jumbotron{
+    margin-bottom: 0px;
+  }
+      .slide {
+        position: relative;
+        width: 100%;
+        height: 700px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: White;
+      }
+
+      /* Style the text */
+      h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+          font-weight: 900;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      /* Hide all but the first slide */
+      .slide:not(:first-child) {
+        display: none;
+      }
+</style>
+<body>
+  {% include "quiz/navbar.html" %}
+<br>
+    <div class="slide">
+      <img src="{% static "image/p8.jpg" %}" alt="Slide 1">
+      <div class="text-container">
+<!--        <h1 >I. k. Gujral Punjab Technical University</h1>-->
+<!--        <p>Some text to go with slide 1</p>-->
+      </div>
+    </div>
+    <div class="slide">
+      <img src="{% static "image/p7.jpg" %}" alt="Slide 2">
+      <div class="text-container">
+<!--        <h1  >I. k. Gujral Punjab Technical University</h1>-->
+<!--        <p>Some text to go with slide 2</p>-->
+      </div>
+    </div>
+    <div class="slide">
+      <img src="{% static "image/p2.jpg" %}" alt="Slide 3">
+      <div class="text-container">
+<!--        <h1  >I. k. Gujral Punjab Technical University</h1>-->
+<!--        <p>Some text to go with slide 3</p>-->
+      </div>
+    </div>
+
+    <script>
+      // Set the index of the current slide
+      let currentSlideIndex = 0;
+      // Get all the slides
+      const slides = document.querySelectorAll('.slide');
+      // Show the next slide every 5 seconds
+      setInterval(() => {
+        // Hide the current slide
+        slides[currentSlideIndex].style.display = 'none';
+        // Increment the slide index
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        // Show the next slide
+        slides[currentSlideIndex].style.display = 'block';
+      }, 5000);
+    </script>
+  <br>
+<section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <h1 class="display-1 text-info">I. k. Gujral Punjab Technical University</h1>
+    <p class="display-4 d-none d-sm-block">Welcome to the Placement Cell </p>
+    <p class="lead">We are working for make students future better.</p>
+
+    
+
+<!--    <p class="lead">Sign up if you haven't already and get access to millions of quizzes on the topic of your interest.</p>-->
+    <p><strong> Start Your Journey Here:</strong></p>
+    <a href="/student/studentsignup" class="btn btn-lg btn-info" style="padding-right: 35px;"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+    
+    <br><br><br>
+  </div>  
+</section>
+  {% include "quiz/footer.html" %}
+
+
+</body>
+
+</html>

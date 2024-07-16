@@ -1,0 +1,1 @@
+resumes = SMODEL.Resume.objects.all().filter(company=company)

@@ -1,0 +1,70 @@
+ {% extends 'company/companybase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+  </style>
+
+
+</head>
+
+<br><br>
+<h3 style="text-align:center;">UPDATE COMPANY</h3>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+         <label for="name">Company Name</label>
+          {% render_field companyForm.name|attr:'required:true'  class="form-control" placeholder="Company Name" %}
+
+         <label for="mobile">Mobile</label>
+          {% render_field companyForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+          <label for="address">Address</label>
+          {% render_field  companyForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+
+
+        <label for="designation">Designation</label>
+        {% render_field companyForm.designation|attr:'required:true'  class="form-control" placeholder="Designation" %}
+        <label for="description">Description</label>
+        {% render_field companyForm.description|attr:'required:true'  class="form-control" placeholder="Description" %}
+         <label for="seats"> Seats</label>
+         {% render_field companyForm.seats|attr:'required:true'  class="form-control" placeholder=" Seats" %}
+          <label for="salary"> Salary</label>
+          {% render_field companyForm.salary|attr:'required:true'  class="form-control" placeholder="Salary" %}
+          <label for="email ">Email</label>
+          {% render_field companyForm.email|attr:'required:true'  class="form-control" placeholder="Email" %}
+
+<br><br>
+    <input type="submit" value="Update">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

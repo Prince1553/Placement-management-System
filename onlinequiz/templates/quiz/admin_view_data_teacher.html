@@ -1,0 +1,70 @@
+{% extends 'quiz/adminbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Teachers</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Profile Picture</th>
+          <th>Mobile</th>
+          <th>Address</th>
+         
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for t in teachers %}
+        <form method="post"  autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+        <label for="first_name">First Name</label>
+        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+        <label for="last_name">Last Name</label>
+        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+          <label for="mobile">Mobile</label>
+          {% render_field teacherForm.mobile class="form-control" placeholder="Mobile" %}
+            <label for="address">Address</label>
+          {% render_field teacherForm.address class="form-control" placeholder="Address" %}
+
+        <label for="username">Username</label>
+        {% render_field userForm.username class="form-control" placeholder="Username" %}
+          <label for="password">Password</label>
+        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
+        <label for="profile_pic">Profile Picture</label>
+          {% render_field teacherForm.profile_pic class="form-control" placeholder="Profile Picture" %}
+<br><br>
+    <input type="submit" value="Update">
+  </form>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}
